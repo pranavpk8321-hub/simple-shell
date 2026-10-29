@@ -17,7 +17,8 @@ using namespace std;
 // Global vector to store command history
 vector<string> commandHistory;
 
-// Helper to get current working directory as a string
+// this is a Helper function that helps
+// to get current working directory as a string
 string getCurrentDir() {
     char buffer[FILENAME_MAX];
     if (_getcwd(buffer, sizeof(buffer)) != nullptr) {
@@ -26,7 +27,7 @@ string getCurrentDir() {
     return "";
 }
 
-// --- Command Functions ---
+//  Command Functions 
 
 void showHelp() {
     cout << "Available commands: help, dir, pwd, cd, mkdir, rmdir, create, del, history, clear, exit" << endl;
@@ -61,7 +62,7 @@ void handleDir() {
         // Skip current and parent directory markers
         if (name == "." || name == "..") continue;
 
-        // Check if attribute is a directory or file
+        // Checking  if attribute is a directory or file
         if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
             cout << "[DIR]  " << name << endl;
         } else {
@@ -132,7 +133,7 @@ void handleClear() {
     system("cls");
 }
 
-// --- Main Loop ---
+// Main Loop 
 
 int main() {
     cout << "Welcome to my Virtual Shell!" << endl;
